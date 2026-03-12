@@ -1,0 +1,11 @@
+// Algebra.Z.Error.swift
+
+/// Errors from modular arithmetic operations.
+extension Tagged where Tag: Algebra.Residual, RawValue == Ordinal {
+    public enum Error: Swift.Error, Hashable, Sendable {
+        /// The residue is not in [0, n).
+        case bounds(Ordinal)
+        /// Integer overflow during arithmetic operation.
+        case arithmetic
+    }
+}
