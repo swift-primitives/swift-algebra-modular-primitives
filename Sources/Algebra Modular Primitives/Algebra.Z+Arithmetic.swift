@@ -56,7 +56,7 @@ extension Tagged where Tag: Algebra.Residual, RawValue == Ordinal {
 extension Tagged where Tag: Algebra.Residual, RawValue == Ordinal {
     @inlinable
     public static func * (lhs: Self, rhs: Self) throws(Error) -> Self {
-        let (product, overflow) = lhs.rawValue.rawValue.multipliedReportingOverflow(by: rhs.rawValue.rawValue)
+        let (product, overflow) = lhs.ordinal.rawValue.multipliedReportingOverflow(by: rhs.ordinal.rawValue)
         guard !overflow else { throw .arithmetic }
         return Self(__unchecked: (), Ordinal(product % Tag.capacity.rawValue))
     }
