@@ -1,5 +1,8 @@
 // Algebra.Modular+Advanced.swift
 
+public import Carrier_Primitives
+public import Affine_Primitives
+
 /// Modular advancement by signed vector.
 extension Algebra.Modular {
     /// Advances an ordinal by a signed vector with modular wrapping.
@@ -21,7 +24,7 @@ extension Algebra.Modular {
     /// Algebra.Modular.advanced(Ordinal(2), by: Affine.Discrete.Vector(-3), modulus: modulus)  // Ordinal(4)
     /// ```
     @inlinable
-    public static func advanced(_ a: Ordinal, by vector: some Affine.Discrete.Vector.`Protocol`, modulus: Modulus) -> Ordinal {
+    public static func advanced(_ a: Ordinal, by vector: some Carrier<Affine.Discrete.Vector>, modulus: Modulus) -> Ordinal {
         let n = Int(bitPattern: modulus.cardinal.rawValue)
         return (a + Cardinal(UInt(((vector.vector.rawValue % n) + n) % n))) % modulus.cardinal
     }

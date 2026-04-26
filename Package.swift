@@ -24,6 +24,7 @@ let package = Package(
     dependencies: [
         .package(path: "../swift-affine-primitives"),
         .package(path: "../swift-algebra-field-primitives"),
+        .package(path: "../swift-carrier-primitives"),
         .package(path: "../swift-finite-primitives"),
         .package(path: "../swift-tagged-primitives"),
     ],
@@ -33,6 +34,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Affine Primitives", package: "swift-affine-primitives"),
                 .product(name: "Algebra Field Primitives", package: "swift-algebra-field-primitives"),
+                .product(name: "Carrier Primitives", package: "swift-carrier-primitives"),
                 .product(name: "Finite Primitives", package: "swift-finite-primitives"),
                 .product(name: "Tagged Primitives", package: "swift-tagged-primitives"),
             ]
