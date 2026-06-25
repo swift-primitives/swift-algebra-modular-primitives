@@ -5,10 +5,10 @@ let package = Package(
     name: "ordinal-modulo-throwing",
     platforms: [.macOS(.v26)],
     dependencies: [
-        .package(path: "../../../swift-ordinal-primitives"),
-        .package(path: "../../../swift-cardinal-primitives"),
-        .package(path: "../../../swift-identity-primitives"),
-        .package(path: "../../../swift-finite-primitives"),
+        .package(url: "https://github.com/swift-primitives/swift-ordinal-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-cardinal-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-tagged-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-finite-primitives.git", branch: "main"),
     ],
     targets: [
         .executableTarget(
@@ -16,7 +16,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Ordinal Primitives", package: "swift-ordinal-primitives"),
                 .product(name: "Cardinal Primitives", package: "swift-cardinal-primitives"),
-                .product(name: "Identity Primitives", package: "swift-identity-primitives"),
+                .product(name: "Tagged Primitives", package: "swift-tagged-primitives"),
                 .product(name: "Finite Primitives", package: "swift-finite-primitives"),
             ],
             swiftSettings: [

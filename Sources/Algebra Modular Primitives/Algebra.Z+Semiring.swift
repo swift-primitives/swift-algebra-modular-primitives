@@ -1,9 +1,9 @@
 // Algebra.Z+Semiring.swift
 
-/// Commutative semiring witness for Z/nZ.
-///
-/// Returns nil if the ring witness is nil (overflow for large moduli).
-extension Tagged where Tag: Algebra.Residual, RawValue == Ordinal {
+extension Tagged where Tag: Algebra.Residual, Underlying == Ordinal {
+    /// Commutative semiring witness for Z/nZ.
+    ///
+    /// Returns nil if the ring witness is nil (overflow for large moduli).
     @inlinable
     public static var semiring: Algebra.Semiring<Self>.Commutative? {
         ring?.semiring

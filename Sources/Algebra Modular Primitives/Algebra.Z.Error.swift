@@ -1,7 +1,7 @@
 // Algebra.Z.Error.swift
 
-/// Errors from modular arithmetic operations.
-extension Tagged where Tag: Algebra.Residual, RawValue == Ordinal {
+extension Tagged where Tag: Algebra.Residual, Underlying == Ordinal {
+    /// Errors from modular arithmetic operations.
     public enum Error: Swift.Error, Hashable, Sendable {
         /// The residue is not in [0, n).
         case bounds(Ordinal)

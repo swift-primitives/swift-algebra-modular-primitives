@@ -1,4 +1,4 @@
-// swift-tools-version: 6.2
+// swift-tools-version: 6.3.1
 
 import PackageDescription
 
@@ -22,19 +22,15 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../swift-affine-primitives"),
-        .package(path: "../swift-algebra-field-primitives"),
-        .package(path: "../swift-finite-primitives"),
-        .package(path: "../swift-identity-primitives"),
+        .package(url: "https://github.com/swift-primitives/swift-algebra-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-finite-primitives.git", branch: "main"),
     ],
     targets: [
         .target(
             name: "Algebra Modular Primitives",
             dependencies: [
-                .product(name: "Affine Primitives", package: "swift-affine-primitives"),
-                .product(name: "Algebra Field Primitives", package: "swift-algebra-field-primitives"),
+                .product(name: "Algebra Field Primitives", package: "swift-algebra-primitives"),
                 .product(name: "Finite Primitives", package: "swift-finite-primitives"),
-                .product(name: "Identity Primitives", package: "swift-identity-primitives"),
             ]
         ),
         .target(
@@ -62,9 +58,11 @@ for target in package.targets where ![.system, .binary, .plugin, .macro].contain
         .enableUpcomingFeature("InternalImportsByDefault"),
         .enableUpcomingFeature("MemberImportVisibility"),
         .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+        .enableExperimentalFeature("LifetimeDependence"),
         .enableExperimentalFeature("Lifetimes"),
         .enableExperimentalFeature("SuppressedAssociatedTypes"),
-        .enableExperimentalFeature("SuppressedAssociatedTypesWithDefaults"),
+        .enableUpcomingFeature("InferIsolatedConformances"),
+        .enableUpcomingFeature("LifetimeDependence"),
     ]
 
     let package: [SwiftSetting] = []

@@ -29,6 +29,7 @@ import Affine_Primitives
 
 // MARK: - Fix: Explicit Cardinal.one disambiguates
 // Result: CONFIRMED — Build Succeeded
+// Revalidated: Swift 6.3.1 (2026-04-30) — PASSES
 
 func fix() {
     let _ = Ordinal(Cardinal.one) % Cardinal(7)

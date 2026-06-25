@@ -1,13 +1,13 @@
 // Algebra.Z+Primality.swift
 
-extension Tagged where Tag: Algebra.Residual, RawValue == Ordinal {
+extension Tagged where Tag: Algebra.Residual, Underlying == Ordinal {
     /// Tests whether a positive integer is prime via trial division.
     ///
     /// Uses `i <= n / i` loop condition to avoid overflow in `i * i`.
     /// Time complexity: O(sqrt(n)).
     @inlinable
     internal static func isPrime(_ capacity: Cardinal) -> Bool {
-        let n = Int(bitPattern: capacity.rawValue)
+        let n = Int(bitPattern: capacity)
         guard n >= 2 else { return false }
         guard n >= 4 else { return true }
         guard !n.isMultiple(of: 2) else { return false }
@@ -26,8 +26,8 @@ extension Tagged where Tag: Algebra.Residual, RawValue == Ordinal {
     /// Intermediate values are bounded by the modulus, so no overflow risk.
     @inlinable
     internal static func inverse(_ a: Ordinal, modulus: Cardinal) -> Ordinal {
-        let m = Int(bitPattern: modulus.rawValue)
-        var oldR = Int(bitPattern: a.rawValue)
+        let m = Int(bitPattern: modulus)
+        var oldR = Int(bitPattern: a)
         var r = m
         var oldS = 1
         var s = 0

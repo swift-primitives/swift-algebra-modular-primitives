@@ -1,18 +1,18 @@
 // Algebra.Modular.Modulus.swift
 
-/// A validated positive modulus for runtime modular arithmetic.
-///
-/// Encapsulates the invariant that a modulus must be greater than zero.
-/// Use this type with `Algebra.Modular` operations to ensure valid
-/// modular arithmetic.
-///
-/// ## Example
-///
-/// ```swift
-/// let modulus = try Algebra.Modular.Modulus(Cardinal(5))
-/// let successor = Algebra.Modular.successor(Ordinal(4), modulus: modulus)  // 0
-/// ```
 extension Algebra.Modular {
+    /// A validated positive modulus for runtime modular arithmetic.
+    ///
+    /// Encapsulates the invariant that a modulus must be greater than zero.
+    /// Use this type with `Algebra.Modular` operations to ensure valid
+    /// modular arithmetic.
+    ///
+    /// ## Example
+    ///
+    /// ```swift
+    /// let modulus = try Algebra.Modular.Modulus(Cardinal(5))
+    /// let successor = Algebra.Modular.successor(Ordinal(4), modulus: modulus)  // 0
+    /// ```
     public struct Modulus: Hashable, Comparable, Sendable {
         /// The positive modulus value.
         public let cardinal: Cardinal
@@ -22,7 +22,7 @@ extension Algebra.Modular {
         /// - Parameter cardinal: The modulus value (must be > 0).
         /// - Throws: `Error.zero` if the value is zero.
         @inlinable
-        public init(_ cardinal: Cardinal) throws(Error) {
+        public init(_ cardinal: Cardinal) throws(Self.Error) {
             guard cardinal > .zero else { throw .zero }
             self.cardinal = cardinal
         }
@@ -39,6 +39,7 @@ extension Algebra.Modular {
 
         // MARK: - Comparable
 
+        /// Orders two moduli by their cardinal value.
         @inlinable
         public static func < (lhs: Self, rhs: Self) -> Bool {
             lhs.cardinal < rhs.cardinal
