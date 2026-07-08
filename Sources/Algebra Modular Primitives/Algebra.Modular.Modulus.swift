@@ -36,13 +36,15 @@ extension Algebra.Modular {
         public init(__unchecked cardinal: Cardinal) {
             self.cardinal = cardinal
         }
+    }
+}
 
-        // MARK: - Comparable
+extension Algebra.Modular.Modulus {
+    // MARK: - Comparable
 
-        /// Orders two moduli by their cardinal value.
-        @inlinable
-        public static func < (lhs: Self, rhs: Self) -> Bool {
-            lhs.cardinal < rhs.cardinal
-        }
+    /// Orders two moduli by their cardinal value.
+    @inlinable
+    public static func < (lhs: Self, rhs: Self) -> Bool {
+        lhs.cardinal < rhs.cardinal
     }
 }

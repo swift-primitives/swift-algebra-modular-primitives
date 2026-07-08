@@ -6,7 +6,7 @@ extension Tagged where Tag: Algebra.Residual, Underlying == Ordinal {
     /// Uses `i <= n / i` loop condition to avoid overflow in `i * i`.
     /// Time complexity: O(sqrt(n)).
     @inlinable
-    internal static func isPrime(_ capacity: Cardinal) -> Bool {
+    package static func isPrime(_ capacity: Cardinal) -> Bool {
         let n = Int(bitPattern: capacity)
         guard n >= 2 else { return false }
         guard n >= 4 else { return true }
@@ -25,7 +25,7 @@ extension Tagged where Tag: Algebra.Residual, Underlying == Ordinal {
     /// Precondition: `gcd(a, modulus) == 1` and `modulus > 1`.
     /// Intermediate values are bounded by the modulus, so no overflow risk.
     @inlinable
-    internal static func inverse(_ a: Ordinal, modulus: Cardinal) -> Ordinal {
+    package static func inverse(_ a: Ordinal, modulus: Cardinal) -> Ordinal {
         let m = Int(bitPattern: modulus)
         var oldR = Int(bitPattern: a)
         var r = m

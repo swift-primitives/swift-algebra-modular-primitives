@@ -42,7 +42,7 @@ extension Tagged where Tag: Algebra.Residual, Underlying == Ordinal {
 
 extension Tagged where Tag: Algebra.Residual, Underlying == Ordinal {
     @inlinable
-    internal static var _modulus: Algebra.Modular.Modulus {
+    package static var _modulus: Algebra.Modular.Modulus {
         .init(__unchecked: Tag.capacity)
     }
 }
