@@ -1,7 +1,8 @@
 import Algebra_Modular_Primitives
 import Testing
 
-@Suite("Algebra.Z Tests")
-struct AlgebraZTests {
+@Suite struct `Algebra.Z Tests` {
     @Suite struct Unit {}
+    @Suite struct `Edge Case` {}
+    @Suite struct Integration {}
 }

@@ -43,6 +43,8 @@ extension Tagged where Tag: Algebra.Residual, Underlying == Ordinal {
 extension Tagged where Tag: Algebra.Residual, Underlying == Ordinal {
     @inlinable
     package static var _modulus: Algebra.Modular.Modulus {
+        // swift-linter:disable:next unchecked call site
+        // REASON: extension-init internals, same-package use per [CONV-001].
         .init(__unchecked: Tag.capacity)
     }
 }

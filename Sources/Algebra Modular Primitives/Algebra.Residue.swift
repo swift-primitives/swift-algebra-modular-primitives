@@ -7,8 +7,11 @@ extension Algebra {
     /// `capacity == n`. This enables `Tagged<Residue<n>, Ordinal>` to
     /// automatically gain `Finite.Enumerable` conformance.
     public enum Residue<let n: Int>: Residual, Hashable, Sendable {
-        /// The modulus `n`, exposed as the cardinal capacity of the residue class.
-        @inlinable
-        public static var capacity: Cardinal { .init(integerLiteral: UInt(n)) }
     }
+}
+
+extension Algebra.Residue {
+    /// The modulus `n`, exposed as the cardinal capacity of the residue class.
+    @inlinable
+    public static var capacity: Cardinal { .init(integerLiteral: UInt(n)) }
 }

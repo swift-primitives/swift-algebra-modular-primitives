@@ -9,8 +9,8 @@ extension Tagged where Tag: Algebra.Residual, Underlying == Ordinal {
     public static var ring: Algebra.Ring<Self>.Commutative? {
         let capacity = Tag.capacity
         guard capacity > .zero else { return nil }
-        let maxResidue = capacity.subtract.saturating(.one)
-        let raw = maxResidue.rawValue
+        let bound = capacity.subtract.saturating(.one)
+        let raw = bound.rawValue
         let (_, overflow) = raw.multipliedReportingOverflow(by: raw)
         guard !overflow else { return nil }
         return .init(
