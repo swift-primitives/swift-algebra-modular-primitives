@@ -71,7 +71,9 @@ extension Tagged where Tag: Algebra.Residual, Underlying == Ordinal {
         // REASON: same-package typed-system bottom-out, documented above.
         // swift-linter:disable:next chained rawvalue access
         // REASON: same-package typed-system bottom-out, documented above.
-        let (product, overflow) = lhs.ordinal.rawValue.multipliedReportingOverflow(by: rhs.ordinal.rawValue)
+        let (product, overflow) = lhs.ordinal.rawValue.multipliedReportingOverflow(
+            by: rhs.ordinal.rawValue
+        )
         guard !overflow else { throw .arithmetic }
         return Self(_unchecked: Ordinal(product % Tag.capacity.rawValue))
     }
